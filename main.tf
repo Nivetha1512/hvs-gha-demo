@@ -30,10 +30,9 @@ provider "hcp" {
    project_id = "9e078459-920d-42d8-8f42-ecaf7c33439f"
 }
 
-# hcp_vault_secrets_secret
-data "hcp_vault_secrets_app" "web_application" {
+data "hcp_vault_secrets_secret" "web_application" {
    app_name = "hvs-team-demo"
-   # secret_name = "app_secret"
+   secret_name = "app_secret"
 }
 
 resource "aws_vpc" "hashicat" {
@@ -196,7 +195,7 @@ resource "null_resource" "configure-cat-app" {
       "sudo systemctl start apache2",
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "chmod +x *.sh",
-      "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix} APP_SECRET=${data.hcp_vault_secrets_app.web_application.secrets} ./deploy_app.sh",
+      "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix} APP_SECRET=${data.hcp_vault_secrets_app.web_application.secret_name} ./deploy_app.sh",
       "sudo apt -y install cowsay",
       "cowsay Mooooooooooo!",
     ]
