@@ -8,7 +8,6 @@ output "catapp_ip" {
 }
 
 output "secret" {
-  # value = data.hcp_vault_secrets_secret.web_application.secret_value
-  value = data.hcp_vault_secrets_app.web_application.secrets
+  value = data.hcp_vault_secrets_secret.web_application.secret_value
   sensitive = true
 }
