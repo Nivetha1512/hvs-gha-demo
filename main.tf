@@ -14,7 +14,7 @@ terraform {
     organization = "NivethaNarayanan-training"
 
     workspaces {
-      name = "hvs-gha-demo"
+      name = "hvs-team-demo"
     }
   }
 }
