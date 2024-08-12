@@ -33,7 +33,7 @@ provider "hcp" {
 # hcp_vault_secrets_secret
 data "hcp_vault_secrets_app" "web_application" {
    app_name = "hvs-team-demo"
-   secret_name = "app_secret"
+   # secret_name = "app_secret"
 }
 
 resource "aws_vpc" "hashicat" {
