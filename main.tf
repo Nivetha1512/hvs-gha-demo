@@ -30,7 +30,8 @@ provider "hcp" {
    project_id = "9e078459-920d-42d8-8f42-ecaf7c33439f"
 }
 
-data "hcp_vault_secrets_secret" "web_application" {
+# hcp_vault_secrets_secret
+data "hcp_vault_secrets_app" "web_application" {
    app_name = "hvs-team-demo"
    secret_name = "app_secret"
 }
